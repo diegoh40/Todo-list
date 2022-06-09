@@ -1,4 +1,4 @@
-import _ from 'lodash';
+/* import _ from 'lodash'; */
 import './style.css';
 import Icon from './img/icon.jpg';
 import Dots from './img/dots.jpeg';
