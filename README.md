@@ -2,8 +2,7 @@
 
 # Project Name
 
-> in this project we implemented modular workflow optimization tools in our projects such as webpack, created a page dynamically with JS and styled it with CSS.
-
+> In this project, I implemented modular workflow optimization tools such as webpack, created a page dynamically with JS, and styled it with CSS.
 
 ## Built With
 
