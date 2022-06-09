@@ -1,0 +1,107 @@
+
+html {
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+body {
+  background-color: #e7e7e7;
+}
+
+section {
+  background-color: #fff;
+  border: 0 solid;
+  padding: 0%;
+  box-shadow: 5px 10px #888;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20%;
+}
+
+.addlist {
+  border: 0;
+  padding: 5% 50% 5% 2%;
+}
+
+.btn {
+  border: none;
+  color: #888;
+  background-color: rgb(238, 238, 238);
+  height: auto;
+  text-align: center;
+  padding: 5% 5% 5% 2%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hidenid {
+  display: none;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  align-items: flex-start;
+}
+
+#tasks {
+  display: flex;
+  list-style-type: none;
+  padding: 0% 10% 0% 0%;
+  width: 60%;
+}
+
+#tasks li {
+  padding: 0% 10% 0% 0%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom-style: groove;
+}
+
+.header img {
+  width: 3%;
+  padding-right: 3%;
+}
+
+.header h3 {
+  padding-left: 3%;
+}
+
+.insideTask {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom-style: groove;
+}
+
+.insideTask img {
+  width: 1%;
+  padding-right: 3%;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom-style: groove;
+}
+
+.todo img {
+  width: 6%;
+}
