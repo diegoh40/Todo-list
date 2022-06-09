@@ -1,11 +1,9 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Project Name
-
 > In this project, I implemented modular workflow optimization tools such as webpack, created a page dynamically with JS, and styled it with CSS.
 
 ## Built With
-
 - Webpack.
 - JS HTML CSS.
 
@@ -14,8 +12,6 @@
 
 
 ## Getting Started
-
-
 To get a local copy up and running follow these simple example steps.
 get clone https://github.com/diegoh40/To-Do-list
 
@@ -33,7 +29,7 @@ get clone https://github.com/diegoh40/To-Do-list
 
 
 
-👤 **Author1**
+👤 **Author**
 
 👤 **Diego Hernández**
 
