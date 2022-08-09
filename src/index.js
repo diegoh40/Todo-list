@@ -55,26 +55,3 @@ const imgNew = document.createElement('img');
 arrow.appendChild(imgNew);
 imgNew.setAttribute('src', Arrow);
 arrow.appendChild(imgNew);
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
