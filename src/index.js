@@ -25,9 +25,16 @@ const renderList = () => {
   let showTasks = '';
 
   for (let i = 0; i < list.length; i += 1) {
-    showTasks += `<div class="insideTask"><ul id="tasks"><li><input type ="checkbox" ${list[i].completed}></li>
-   <li> ${list[i].description}</li> <li class="hidenid">${list[i].index}</li></ul>
-   <img src="${Dots}"> </div>
+    showTasks += `<div class="insideTask">
+    <div class='task-container'>
+    <ul id="tasks">
+    <li><input type ="checkbox" ${list[i].completed}></li>
+    <li> ${list[i].description}</li> 
+    <li class="hidenid">${list[i].index}</li>
+    </ul>
+    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    <i class="fa fa-trash" aria-hidden="true"></i>
+   </div>
     `;
 
     document.getElementById('list').innerHTML = showTasks;
@@ -36,3 +43,4 @@ const renderList = () => {
 
 renderList();
 
+console.log('hola');

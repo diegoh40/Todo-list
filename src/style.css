@@ -51,9 +51,15 @@ form {
   list-style-type: none;
   align-items: flex-start;
 }
-
+.task-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
 #tasks {
   display: flex;
+  flex-direction: row;
   list-style-type: none;
   padding: 0% 10% 0% 0%;
   width: 60%;
@@ -72,7 +78,7 @@ form {
   border-bottom-style: groove;
 }
 
-.header img {
+.fa-refresh {
   width: 3%;
   padding-right: 3%;
 }
@@ -83,6 +89,7 @@ form {
 
 .insideTask {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   justify-content: space-between;
@@ -104,4 +111,9 @@ form {
 
 .todo img {
   width: 6%;
+}
+
+.fa-level-up{
+  width: 3%;
+  padding-right: 3%;
 }
