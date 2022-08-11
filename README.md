@@ -2,11 +2,15 @@
 
 # Project Name
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 > in this project we implemented modular workflow optimization tools in our projects such as webpack, created a page dynamically with JS and styled it with CSS.
 =======
 > In this project, I implemented modular workflow optimization tools such as webpack, created a page dynamically with JS, and styled it with CSS.
 >>>>>>> a3e5c26fbb3c3d94866b5bd7ecf052e04ddaafc8
+=======
+> In this project, I implemented modular workflow optimization tools such as webpack, created a page dynamically with JS, and styled it with CSS.
+>>>>>>> main
 
 ## Built With
 - Webpack.
