@@ -4,7 +4,6 @@
 
 > in this project we implemented modular workflow optimization tools in our projects such as webpack, created a page dynamically with JS and styled it with CSS.
 
-
 ## Built With
 
 - Webpack
