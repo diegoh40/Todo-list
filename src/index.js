@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* import _ from 'lodash'; */
+>>>>>>> a3e5c26fbb3c3d94866b5bd7ecf052e04ddaafc8
 import './style.css';
 
 class StorageL {

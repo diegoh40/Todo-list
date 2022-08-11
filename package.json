@@ -20,8 +20,15 @@
   },
   "homepage": "https://github.com/diegoh40/Todo-list#readme",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
+<<<<<<< HEAD
     "hint": "^6.2.0",
+=======
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.26.0",
+>>>>>>> a3e5c26fbb3c3d94866b5bd7ecf052e04ddaafc8
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
