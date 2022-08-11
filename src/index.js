@@ -40,9 +40,9 @@ static addTask() {
     const newTask = {
       description: recive,
       completed: false,
-      index: 0,
+      index: tt.length + 1,
     };
-    tt.unshift(newTask);
+    tt.push(newTask);
     this.storage(tt);
     this.renderList();
   }
@@ -50,7 +50,12 @@ static addTask() {
 
 static deleteTask(evento) {
   let list = this.getlist();
-  list = list.filter((el, index) => evento.target.id !== index.toString());
+  let cnt = 1;
+  list = list.filter((el, indx) => evento.target.id !== indx.toString());
+  for (let i = 0; i < list.length; i += 1) {
+    list[i].index = cnt;
+    cnt += 1;
+  }
   this.storage(list);
   this.renderList();
 }
@@ -93,8 +98,10 @@ document.addEventListener('click', (e) => {
 
 // ----------Add-----------
 const addList = document.getElementById('bk');
-addList.addEventListener('submit', () => {
+addList.addEventListener('submit', (e) => {
+  e.preventDefault();
   StorageL.addTask();
+  addList.reset();// clea the form
 });
 
 // ----------Remove------------
@@ -107,7 +114,7 @@ document.addEventListener('click', (e) => {
 
 // ---------input Edit Text------------
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => { // && e.key === 13
   if (e.target.matches('.yellow')) {
     e.preventDefault();
     StorageL.editTask(e);
