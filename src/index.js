@@ -50,12 +50,12 @@ static addTask() {
 
 static deleteTask(evento) {
   let list = this.getlist();
-  let cnt = 1
+  let cnt = 1;
   list = list.filter((el, indx) => evento.target.id !== indx.toString());
-  for (let i = 0; i < list.length; i++) {
-    list[i].index = cnt
-     cnt++
-   }
+  for (let i = 0; i < list.length; i += 1) {
+    list[i].index = cnt;
+    cnt += 1;
+  }
   this.storage(list);
   this.renderList();
 }
