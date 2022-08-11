@@ -10,20 +10,10 @@ body {
   background-color: #e7e7e7;
 }
 
-section {
-  background-color: #fff;
-  border: 0 solid;
-  padding: 0%;
-  box-shadow: 5px 10px #888;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20%;
-}
-
 .addlist {
   border: 0;
-  padding: 5% 50% 5% 2%;
+  padding: 3% 15% 3% 2%;
+  width: 60%;
 }
 
 .btn {
@@ -35,38 +25,44 @@ section {
   padding: 5% 5% 5% 2%;
 }
 
+#btn-newbook {
+  margin-right: 5%;
+}
+
+.box {
+  margin-left: 2%;
+}
+
+.desc {
+  display: flex;
+  margin-right: 55%;
+  flex-direction: row;
+}
+
+#edit {
+  border: none;
+  width: 50%;
+}
+
+.fa-refresh {
+  width: 3%;
+  padding-right: 3%;
+}
+
 form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.hidenid {
+.fa-trash {
   display: none;
+  margin-right: 5%;
 }
 
-#list {
+.fa-ellipsis-v {
   display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  align-items: flex-start;
-}
-.task-container{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
-#tasks {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  padding: 0% 10% 0% 0%;
-  width: 60%;
-}
-
-#tasks li {
-  padding: 0% 10% 0% 0%;
+  margin-right: 5%;
 }
 
 .header {
@@ -78,27 +74,32 @@ form {
   border-bottom-style: groove;
 }
 
-.fa-refresh {
-  width: 3%;
-  padding-right: 3%;
-}
-
 .header h3 {
   padding-left: 3%;
 }
 
 .insideTask {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
   justify-content: space-between;
   border-bottom-style: groove;
 }
 
-.insideTask img {
-  width: 1%;
-  padding-right: 3%;
+#list {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  background-color: #fff;
+  border: 0 solid;
+  padding: 0%;
+  box-shadow: 5px 10px #888;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20%;
 }
 
 .todo {
@@ -109,11 +110,11 @@ form {
   border-bottom-style: groove;
 }
 
-.todo img {
-  width: 6%;
-}
-
-.fa-level-up{
-  width: 3%;
-  padding-right: 3%;
+.yellow {
+  background-color: #fafad3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
