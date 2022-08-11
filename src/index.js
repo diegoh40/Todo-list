@@ -39,7 +39,7 @@ static addTask() {
   if (recive !== '') {
     const newTask = {
       description: recive,
-      completed: true,
+      completed: false,
       index: tt.length + 1,
     };
     tt.push(newTask);
