@@ -100,8 +100,8 @@ document.addEventListener('click', (e) => {
 const addList = document.getElementById('bk');
 addList.addEventListener('submit', (e) => {
   e.preventDefault();
-  StorageL.addTask();  
-  addList.reset()// clea the form 
+  StorageL.addTask();
+  addList.reset();// clea the form
 });
 
 // ----------Remove------------
@@ -114,8 +114,8 @@ document.addEventListener('click', (e) => {
 
 // ---------input Edit Text------------
 
-document.addEventListener('click', (e) => { //&& e.key === 13
-  if (e.target.matches('.yellow') ) {
+document.addEventListener('click', (e) => { // && e.key === 13
+  if (e.target.matches('.yellow')) {
     e.preventDefault();
     StorageL.editTask(e);
   }
