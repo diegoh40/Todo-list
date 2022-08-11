@@ -39,10 +39,10 @@ static addTask() {
   if (recive !== '') {
     const newTask = {
       description: recive,
-      completed: false,
-      index: 0,
+      completed: true,
+      index: tt.length + 1,
     };
-    tt.unshift(newTask);
+    tt.push(newTask);
     this.storage(tt);
     this.renderList();
   }
@@ -50,7 +50,12 @@ static addTask() {
 
 static deleteTask(evento) {
   let list = this.getlist();
-  list = list.filter((el, index) => evento.target.id !== index.toString());
+  let cnt = 1
+  list = list.filter((el, indx) => evento.target.id !== indx.toString());
+  for (let i = 0; i < list.length; i++) {
+    list[i].index = cnt
+     cnt++
+   }
   this.storage(list);
   this.renderList();
 }
