@@ -37,6 +37,7 @@ body {
   display: flex;
   margin-right: 55%;
   flex-direction: row;
+  text-decoration: none;
 }
 
 #edit {
