@@ -22,7 +22,7 @@ static renderList() {
   let showTasks = '';
   for (let i = 0; i < jj.length; i += 1) {
     showTasks += `<div class="insideTask" id="${i}" >
-      <input class='box' type ="checkbox" ${jj[i].completed}>
+      <input class="box" type ="checkbox" />
       <p class='desc'> ${jj[i].description}</p>                  
       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
       <i class="fa fa-trash" id="${i}" aria-hidden="true"></i>     
@@ -86,13 +86,69 @@ static editTask(event) {
     }
   }
 }
+
+static checkStatus(event){
+  const lS = this.getlist();
+ const pp = event.target
+ console.log(pp.parentNode.getAttribute('id'));
+ const todo = document.querySelectorAll('.insideTask');
+if(event.target.checked){
+  console.log(event.target,'checkbox is checked');
+    for (let i = 0; i < todo.length; i += 1) {
+      if (todo[i].getAttribute('id') === pp.parentNode.getAttribute('id')) {
+        setTimeout(()=>{
+        lS[i].completed = true;
+        this.storage(lS);
+        this.renderList();
+        }, 500)
+        //event.target.setAttribute('checked', '');
+        //break;
+      }
+      if (pp.checked){
+        pp.setAttribute('checked', '')
+      } 
+    }  
+  }
 }
+
+static clearAllCompleted(){
+  const lS = this.getlist();
+  console.log(lS[1].completed);
+  const ok = lS.filter((element) => element.completed === false);
+  this.storage(ok);
+  this.renderList();
+}
+
+
+}
+
+
+// ---------ClearAllCompleted
+document.addEventListener('click',(e)=>{
+  if (e.target.matches('.btn')) {
+    e.preventDefault();
+    console.log('Clear');
+    StorageL.clearAllCompleted()  
+     }
+});
+
+//---------checkStatus--------
+const hh = document.querySelector('.box')
+document.addEventListener("change", (e) => {
+  e.preventDefault();
+  if (e.target.matches('.box')) {
+   // console.log('es un checkbox');
+   StorageL.checkStatus(e)      
+  }
+});
+
 
 // ----------Edit info--------
 document.addEventListener('click', (e) => {
   if (e.target.matches('.desc')) { //
     e.preventDefault();
     StorageL.selectTask(e);
+
   }
 });
 
@@ -120,5 +176,9 @@ document.addEventListener('click', (e) => { // && e.key === 13
     StorageL.editTask(e);
   }
 });
+
+
+
+//const hh = document.getElementById('box')
 
 StorageL.renderList();
