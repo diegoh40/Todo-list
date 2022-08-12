@@ -1,164 +1,30 @@
 import './style.css';
-
-class StorageL {
-  static storage(ok) {
-    window.localStorage.setItem('list', JSON.stringify(ok));
-  }
-
-static getlist = () => {
-  let list = [];
-  if (window.localStorage.getItem('list') === null) {
-    this.storage(list);
-  }
-  list = JSON.parse(window.localStorage.getItem('list'));
-  return list;
-}
-
-static renderList() {
-  const jj = this.getlist();
-  let todos = document.getElementById('list')  
-  todos.innerHTML = '';
-  let showTasks = '';
-  for (let i = 0; i < jj.length; i += 1) {
-    showTasks += `<div class="insideTask" id="${i}" >
-      <input class="box" type ="checkbox" />
-      <p class='desc'> ${jj[i].description}</p>                  
-      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-      <i class="fa fa-trash" id="${i}" aria-hidden="true"></i>     
-      </div>    
-      `;
-   todos.innerHTML = showTasks;
-  }
- // return 1;
-}
-
-static addTask() {
-  const tt = this.getlist();
-  const recive = document.getElementById('addL').value;
-  if (recive !== '') {
-    const newTask = {
-      description: recive,
-      completed: false,
-      index: tt.length + 1,
-    };
-    tt.push(newTask);
-    this.storage(tt);
-    this.renderList();
-  }
-}
-
-static deleteTask(evento) {
-  let list = this.getlist();
-  let cnt = 1;
-  list = list.filter((el, indx) => evento.target.id !== indx.toString());
-  for (let i = 0; i < list.length; i += 1) {
-    list[i].index = cnt;
-    cnt += 1;
-  }
-  this.storage(list);
-  this.renderList();
-}
-
-static selectTask(evento) { // <input class="editex" type="text" placeholder="Edit" >
-  const oo = evento.target;
-  oo.parentNode.classList.toggle('yellow');
-  const sibli = oo.nextElementSibling;
-  sibli.nextElementSibling.style.display = 'flex';
-  sibli.style.display = 'none';
-  const newinput = document.createElement('input');
-  newinput.setAttribute('id', 'edit');
-  newinput.setAttribute('placeholder', 'edit');
-  oo.appendChild(newinput);
-}
-
-static editTask(event) {
-  const lS = this.getlist();
-  const oo = event.target;
-  const inputEdit = document.getElementById('edit').value;
-  const todo = document.querySelectorAll('.insideTask');
-  for (let i = 0; i < todo.length; i += 1) {
-    if (todo[i].getAttribute('id') === oo.getAttribute('id')) {
-      lS[i].description = inputEdit;
-      this.storage(lS);
-      this.renderList();
-      break;
-    }
-  }
-}
-
-static checkStatus(event){
-  const lS = this.getlist();
- const pp = event.target
- const todo = document.querySelectorAll('.insideTask');
- const sub = pp.nextElementSibling  
-    for (let i = 0; i < todo.length; i += 1) {
-      if (todo[i].getAttribute('id') === pp.parentNode.getAttribute('id')) {        
-        lS[i].completed = true;  
-        sub.style.textDecoration = 'line-through';         
-  }
-  this.storage(lS);
-  //this.renderList();
-  }
-}
-
-  static checkStatusFalse(event){
-    const lS = this.getlist();
-   const pp = event.target   
-   const todo = document.querySelectorAll('.insideTask');
-   const sub = pp.nextElementSibling    
-      for (let i = 0; i < todo.length; i += 1) {
-        if (todo[i].getAttribute('id') === pp.parentNode.getAttribute('id')) {        
-          lS[i].completed = false;  
-          sub.style.textDecoration = 'none';           
-    }
-    this.storage(lS);
-    //this.renderList();
-    }
-}
-
-
-static clearAllCompleted(){
-  const lS = this.getlist();
-  const ok = lS.filter(el => el.completed === false)
-  for (let i = 0; i < ok.length; i += 1) {
-    ok[i].index = i+1;    
-  }
-  this.storage(ok);
-  this.renderList();
-}
-
-}
+import StorageL from './modules/storage.js';
 
 // ---------ClearAllCompleted
-document.addEventListener('click',(e)=>{
+document.addEventListener('click', (e) => {
   if (e.target.matches('.btn')) {
     e.preventDefault();
-    console.log('cLEAR');
-    StorageL.clearAllCompleted()      
-   }
-
-});
-
-//---------checkStatus--------
-//const hh = document.querySelector('.box')
-document.addEventListener("change", (e) => {
-  if(e.target.checked){
-    e.preventDefault();
-   // console.log('es un checkbox');
-   StorageL.checkStatus(e)      
-  }else{
-    StorageL.checkStatusFalse(e)
+    StorageL.clearAllCompleted();
   }
-  
 });
 
+// ---------checkStatus--------
+// const hh = document.querySelector('.box')
+document.addEventListener('change', (e) => {
+  if (e.target.checked) {
+    e.preventDefault();
+    StorageL.checkStatus(e);
+  } else {
+    StorageL.checkStatusFalse(e);
+  }
+});
 
 // ----------Edit info--------
 document.addEventListener('click', (e) => {
   if (e.target.matches('.desc')) { //
     e.preventDefault();
     StorageL.selectTask(e);
-
   }
 });
 
@@ -186,9 +52,5 @@ document.addEventListener('click', (e) => { // && e.key === 13
     StorageL.editTask(e);
   }
 });
-
-
-
-//const hh = document.getElementById('box')
 
 StorageL.renderList();
