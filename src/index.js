@@ -16,9 +16,8 @@ static getlist = () => {
 
 static renderList() {
   const jj = this.getlist();
-  if (jj === undefined) {
-    return 'no hay tareas pendientes';
-  }
+  let todos = document.getElementById('list')  
+  todos.innerHTML = '';
   let showTasks = '';
   for (let i = 0; i < jj.length; i += 1) {
     showTasks += `<div class="insideTask" id="${i}" >
@@ -28,9 +27,9 @@ static renderList() {
       <i class="fa fa-trash" id="${i}" aria-hidden="true"></i>     
       </div>    
       `;
-    document.getElementById('list').innerHTML = showTasks;
+   todos.innerHTML = showTasks;
   }
-  return 1;
+ // return 1;
 }
 
 static addTask() {
@@ -90,34 +89,43 @@ static editTask(event) {
 static checkStatus(event){
   const lS = this.getlist();
  const pp = event.target
- console.log(pp.parentNode.getAttribute('id'));
  const todo = document.querySelectorAll('.insideTask');
-
-  console.log(event.target,'checkbox is checked');
+ const sub = pp.nextElementSibling  
     for (let i = 0; i < todo.length; i += 1) {
       if (todo[i].getAttribute('id') === pp.parentNode.getAttribute('id')) {        
-        lS[i].completed = true;     
-          } else{
-            lS[i].completed = false;
-          }   
+        lS[i].completed = true;  
+        sub.style.textDecoration = 'line-through';         
   }
   this.storage(lS);
   //this.renderList();
   }
+}
+
+  static checkStatusFalse(event){
+    const lS = this.getlist();
+   const pp = event.target   
+   const todo = document.querySelectorAll('.insideTask');
+   const sub = pp.nextElementSibling    
+      for (let i = 0; i < todo.length; i += 1) {
+        if (todo[i].getAttribute('id') === pp.parentNode.getAttribute('id')) {        
+          lS[i].completed = false;  
+          sub.style.textDecoration = 'none';           
+    }
+    this.storage(lS);
+    //this.renderList();
+    }
+}
 
 
 static clearAllCompleted(){
   const lS = this.getlist();
-  let cnt = 1;
   const ok = lS.filter(el => el.completed === false)
   for (let i = 0; i < ok.length; i += 1) {
-    ok[i].index = cnt;
-    cnt += 1;
+    ok[i].index = i+1;    
   }
   this.storage(ok);
   this.renderList();
 }
-
 
 }
 
@@ -138,6 +146,8 @@ document.addEventListener("change", (e) => {
     e.preventDefault();
    // console.log('es un checkbox');
    StorageL.checkStatus(e)      
+  }else{
+    StorageL.checkStatusFalse(e)
   }
   
 });
