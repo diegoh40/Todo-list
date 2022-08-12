@@ -92,29 +92,28 @@ static checkStatus(event){
  const pp = event.target
  console.log(pp.parentNode.getAttribute('id'));
  const todo = document.querySelectorAll('.insideTask');
-if(event.target.checked){
+
   console.log(event.target,'checkbox is checked');
     for (let i = 0; i < todo.length; i += 1) {
-      if (todo[i].getAttribute('id') === pp.parentNode.getAttribute('id')) {
-        setTimeout(()=>{
-        lS[i].completed = true;
-        this.storage(lS);
-        this.renderList();
-        }, 500)
-        //event.target.setAttribute('checked', '');
-        //break;
-      }
-      if (pp.checked){
-        pp.setAttribute('checked', '')
-      } 
-    }  
+      if (todo[i].getAttribute('id') === pp.parentNode.getAttribute('id')) {        
+        lS[i].completed = true;     
+          } else{
+            lS[i].completed = false;
+          }   
   }
-}
+  this.storage(lS);
+  //this.renderList();
+  }
+
 
 static clearAllCompleted(){
   const lS = this.getlist();
-  console.log(lS[1].completed);
-  const ok = lS.filter((element) => element.completed === false);
+  let cnt = 1;
+  const ok = lS.filter(el => el.completed === false)
+  for (let i = 0; i < ok.length; i += 1) {
+    ok[i].index = cnt;
+    cnt += 1;
+  }
   this.storage(ok);
   this.renderList();
 }
@@ -122,24 +121,25 @@ static clearAllCompleted(){
 
 }
 
-
 // ---------ClearAllCompleted
 document.addEventListener('click',(e)=>{
   if (e.target.matches('.btn')) {
     e.preventDefault();
-    console.log('Clear');
-    StorageL.clearAllCompleted()  
-     }
+    console.log('cLEAR');
+    StorageL.clearAllCompleted()      
+   }
+
 });
 
 //---------checkStatus--------
-const hh = document.querySelector('.box')
+//const hh = document.querySelector('.box')
 document.addEventListener("change", (e) => {
-  e.preventDefault();
-  if (e.target.matches('.box')) {
+  if(e.target.checked){
+    e.preventDefault();
    // console.log('es un checkbox');
    StorageL.checkStatus(e)      
   }
+  
 });
 
 
