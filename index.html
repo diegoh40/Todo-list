@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Wbpack Exercise</title>
+    <link rel="stylesheet" href="style.css">
+<script defer src="runtime.js"></script><script defer src="main.js"></script></head>
+<body>
+    <section>
+            <div class="header">
+                <h3>Today's To do</h3>
+                <i class="fa fa-refresh" aria-hidden="true"></i>               
+            </div>
+
+            <form id='bk'> 
+                <div class="todo" >
+                    <label for="addL"></label>
+                    <input class="addlist" id="addL" type="text" placeholder="Add you list" >
+                    <button type="submit" form="bk" id="btn-newbook" >↵</button>
+                </div>                
+                <div id="list" ></div>                
+                <a href="." class="btn" >Clear all complete</a>                
+            </form>
+            
+    </section>
+    <script type="module" src="index.js" ></script>
+    
+</body>
+</html> 
