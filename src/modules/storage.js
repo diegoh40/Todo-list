@@ -42,7 +42,11 @@ export default class StorageL {
       tt.push(newTask);
       this.storage(tt);
       this.renderList();
+      console.log(newTask);
+      return newTask
     }
+
+
   }
 
   static deleteTask(evento) {
@@ -55,6 +59,8 @@ export default class StorageL {
     }
     this.storage(list);
     this.renderList();
+    console.log(evento.target.id);
+    return evento.target.id
   }
 
   static selectTask(evento) {
