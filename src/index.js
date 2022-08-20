@@ -1,5 +1,11 @@
 import './style.css';
 import StorageL from './modules/storage.js';
+import {addList, recive} from './modules/variables.js';
+import {suma, addTask, localStore1, deleteTask} from './__test__/__mocks__/storage.js';
+
+//import recive from './modules/variables.js';
+addTask('prueba')
+console.log(localStore1, 'mock localStore1');
 
 // ---------ClearAllCompleted
 document.addEventListener('click', (e) => {
@@ -29,10 +35,12 @@ document.addEventListener('click', (e) => {
 });
 
 // ----------Add-----------
-const addList = document.getElementById('bk');
+//const addList = document.getElementById('bk');
+
 addList.addEventListener('submit', (e) => {
+  const recive = document.getElementById('addL').value;   
   e.preventDefault();
-  StorageL.addTask();
+  StorageL.addTask(recive);
   addList.reset();// clea the form
 });
 
@@ -52,5 +60,6 @@ document.addEventListener('click', (e) => { // && e.key === 13
     StorageL.editTask(e);
   }
 });
+ 
 
 StorageL.renderList();

@@ -1,4 +1,6 @@
 export default class StorageL {
+ 
+
   static storage(ok) {
     window.localStorage.setItem('list', JSON.stringify(ok));
   }
@@ -13,8 +15,8 @@ export default class StorageL {
   }
 
   static renderList() {
-    const jj = this.getlist();
-    const todos = document.getElementById('list');
+    const jj = this.getlist();   
+    const todos = document.getElementById('list');      
     todos.innerHTML = '';
     let showTasks = '';
     for (let i = 0; i < jj.length; i += 1) {
@@ -25,28 +27,25 @@ export default class StorageL {
         <i class="fa fa-trash" id="${i}" aria-hidden="true"></i>     
         </div>    
         `;
-      todos.innerHTML = showTasks;
+      todos.innerHTML = showTasks;    
     }
     // return 1;
   }
 
-  static addTask() {
+  static addTask(val) {
     const tt = this.getlist();
-    const recive = document.getElementById('addL').value;
-    if (recive !== '') {
+    //const recive = document.getElementById('addL').value;
+    if (val !== '') {
       const newTask = {
-        description: recive,
+        description: val,
         completed: false,
         index: tt.length + 1,
       };
       tt.push(newTask);
       this.storage(tt);
       this.renderList();
-      console.log(newTask);
       return newTask
     }
-
-
   }
 
   static deleteTask(evento) {
@@ -59,8 +58,6 @@ export default class StorageL {
     }
     this.storage(list);
     this.renderList();
-    console.log(evento.target.id);
-    return evento.target.id
   }
 
   static selectTask(evento) {
@@ -128,3 +125,12 @@ export default class StorageL {
     this.renderList();
   }
 }
+
+/* const todos = document.getElementById('list');
+export const newTask = new StorageL(todos)
+newTask.renderList() */
+
+//let uu = newTask(todos).renderlist()
+
+
+
